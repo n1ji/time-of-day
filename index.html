@@ -34,13 +34,13 @@
 
 		p {
 			margin:10px;
-			color: #e6e3dc;
+			color: #E7DFC6;
 		}
 
 		h1,h2,h3,h4,h5,h6 {
 			font-weight:normal;
 			margin:10px;
-			color: #e6e3dc;
+			color: #E7DFC6;
 			text-align: center;
 		}
 
@@ -52,6 +52,23 @@
 			text-align:center;
 			clear:both; /* ride below all items */
 		}
+
+		::selection {
+			color: #E7DFC6; 
+			background: #AD343E;
+		}
+
+		a {
+			color:#000000;
+			text-decoration: none;
+			font-style: bold;
+		}
+
+		a:hover {
+			color: #E7DFC6;
+			background-color: #AD343E;
+			text-decoration: none;
+		}
     </style>
 </head>
 <body>
@@ -60,9 +77,9 @@
 	</header>
     <main>
 	 <header><h3>A JavaScript Project by Myra Rudy</h3></header><br>
-	 	<h3 id="my-greeting">Greeting Goes Here!</h3>
-	    <p>Explain what your page does and how it works here!</p>
-	  <img src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible">
+	 	<h3 id="my-greeting">Greeting Goes Here!</h3><br>
+		<p>Explain what your page does and how it works here!</p>
+	<img id="image-time" src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible">
 
 	  <footer>
         <p>
@@ -85,29 +102,47 @@
 
   </main>
  <script>
-    myDate = new Date(); 
+	myDate = new Date(); 
 	myHour = myDate.getHours(); 
 	myColor = "blue"; 
+	mySentence = "";
+	imageUrl = "";
 
-	if (myHour < 12) { 
-		//alert("Good Morning"); 
-		mySentence = "Good Morning"; 
-		myColor = "purple";
-	} 
+	myHour = 23
 
-	else if (myHour > 12) { 
-		//alert("Good Afternoon"); 
-		mySentence = "Good afternoon!"; 
-		myColor = "pink"; 
+	if (myHour >= 5 && myHour < 12) {
+		// Morning
+		myColor = "#008dff";
+		mySentence = "Good Morning!";
+		imageUrl = "images/morning.jpg";
+	} else if (myHour >= 12 && myHour < 18) {
+		// Afternoon
+		myColor = "#a200ff";
+		mySentence = "Good Afternoon!";
+		imageUrl = "images/afternoon.jpg";
+	} else if (myHour >= 18 && myHour < 23) {
+		// Evening
+		myColor = "#ff5e00";
+		mySentence = "Good Evening!";
+		imageUrl = "images/evening.jpg";
+	} else {
+		// Night
+		myColor = "#8a0000";
+		mySentence = "Good Night!";
+		imageUrl = "images/night.jpg";
 	}
 
-
 	document.getElementById("my-greeting").innerHTML = mySentence; 
-	document.body.style.backgroundColor = myColor; 
+	document.body.style.backgroundColor = myColor;
+	document.getElementById("image-time").src = imageUrl;
+	document.getElementsByClassName("image-time").alt = mySentence;
 
-	//Adds script to add site url to validate HTML & CSS
+	// Adds script to add site URL to validate HTML & CSS
 	document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
-    document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);  
+	document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+
+	// Display the current year in the footer
+	document.getElementById("this-year").textContent = myDate.getFullYear();
  </script>
 </body>
 </html>
