@@ -78,7 +78,9 @@
     <main>
 	 <header><h3>A JavaScript Project by Myra Rudy</h3></header><br>
 	 	<h3 id="my-greeting">Greeting Goes Here!</h3><br>
-		<p>Explain what your page does and how it works here!</p>
+		 <p id="day-of-week">Today is: </p><br>
+		<p>This page checks what day and time it is using your comuper's local time.</p>
+		<p>It uses the time to change the background color and image displayed on the right.</p>
 	<img id="image-time" src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible">
 
 	  <footer>
@@ -107,6 +109,8 @@
 	myColor = "blue"; 
 	mySentence = "";
 	imageUrl = "";
+	daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    myDay = daysOfWeek[myDate.getDay()]; // Get the current day of the week
 
 	myHour = 23
 
@@ -132,10 +136,15 @@
 		imageUrl = "images/night.jpg";
 	}
 
-	document.getElementById("my-greeting").innerHTML = mySentence; 
+	//Change sentence depending on the time of day
+	document.getElementById("my-greeting").innerHTML = mySentence;
+	//Change background color
 	document.body.style.backgroundColor = myColor;
+	//Change image url
 	document.getElementById("image-time").src = imageUrl;
 	document.getElementsByClassName("image-time").alt = mySentence;
+	// Display the day of the week
+	document.getElementById("day-of-week").innerHTML = "Today is: " + myDay;
 
 	// Adds script to add site URL to validate HTML & CSS
 	document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
