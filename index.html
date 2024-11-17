@@ -79,7 +79,7 @@
 	 <header><h3>A JavaScript Project by Myra Rudy</h3></header><br>
 	 	<h3 id="my-greeting">Greeting Goes Here!</h3><br>
 		 <p id="day-of-week">Today is: </p><br>
-		<p>This page checks what day and time it is using your comuper's local time.</p>
+		<p>This page checks what day and time it is using your computer's local time.</p>
 		<p>It uses the time to change the background color and image displayed on the right.</p>
 	<img id="image-time" src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible">
 
@@ -109,8 +109,10 @@
 	myColor = "blue"; 
 	mySentence = "";
 	imageUrl = "";
+	// Array list of each day
 	daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    myDay = daysOfWeek[myDate.getDay()]; // Get the current day of the week
+    // Get the current day of the week
+	myDay = daysOfWeek[myDate.getDay()];
 
 	if (myHour >= 5 && myHour < 12) {
 		// Morning
@@ -136,11 +138,14 @@
 
 	//Change sentence depending on the time of day
 	document.getElementById("my-greeting").innerHTML = mySentence;
+	
 	//Change background color
 	document.body.style.backgroundColor = myColor;
+
 	//Change image url
 	document.getElementById("image-time").src = imageUrl;
 	document.getElementsByClassName("image-time").alt = mySentence;
+
 	// Display the day of the week
 	document.getElementById("day-of-week").innerHTML = "Today is: " + myDay;
 
