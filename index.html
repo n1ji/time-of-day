@@ -26,9 +26,9 @@
 
 		img.flexible {
 			float:right;
-			display:inline-block;
+			display:flex;
 			padding:20px;
-			max-width:300px; /* actual size of image */
+			max-width:400px; /* max size of image */
 			width:33%; /* approximate size taken on screen in maximum view */
 		}
 
@@ -81,6 +81,7 @@
 		 <p id="day-of-week">Today is: </p><br>
 		<p>This page checks what day and time it is using your computer's local time.</p>
 		<p>It uses the time to change the background color and image displayed on the right.</p>
+
 	<img id="image-time" src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible">
 
 	  <footer>
@@ -104,9 +105,9 @@
 
   </main>
  <script>
-	myDate = new Date(); 
-	myHour = myDate.getHours(); 
-	myColor = "blue"; 
+	myDate = new Date();
+	myHour = myDate.getHours();
+	myColor = "blue";
 	mySentence = "";
 	imageUrl = "";
 	// Array list of each day
@@ -138,7 +139,7 @@
 
 	//Change sentence depending on the time of day
 	document.getElementById("my-greeting").innerHTML = mySentence;
-	
+
 	//Change background color
 	document.body.style.backgroundColor = myColor;
 
@@ -153,7 +154,7 @@
 	document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
 	document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
 
-	// Display the current year in the footer
+	// Display the current year in the footer for copyright
 	document.getElementById("this-year").textContent = myDate.getFullYear();
  </script>
 </body>
